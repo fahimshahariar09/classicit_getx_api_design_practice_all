@@ -1,7 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_api_design_practice/controller/getx_controller/authentication/sign_up.dart';
 import 'package:getx_api_design_practice/view/common_widget/common_button.dart';
+import 'package:getx_api_design_practice/view/common_widget/common_loading_button.dart';
 import 'package:getx_api_design_practice/view/screen/auth/widget/confram_pass_text_field.dart';
 import 'package:getx_api_design_practice/view/screen/auth/widget/email_text_field.dart';
 import 'package:getx_api_design_practice/view/screen/auth/widget/pass_text_field.dart';
@@ -40,12 +43,20 @@ class SignUp extends StatelessWidget {
                         signUpController.passwordconfirmationController,
                   ),
                   buildSizedBox(height: 20),
-                  CommonButton(buttonName: "Sign Up", onTap: () {
-                    if(signUpController.formKey.currentState!.validate()){
-                      return;
-                    }
-                    signUpController.signUpFun();
-                  }),
+                  Obx(
+                    () => signUpController.isLoading.isFalse
+                        ? CommonButton(
+                            buttonName: "Sign Up",
+                            onTap: () {
+                              log("message");
+                              if (!signUpController.formKey.currentState!
+                                  .validate()) {
+                                return;
+                              }
+                              signUpController.signUpFun();
+                            })
+                        : const CommonLoadingButton(),
+                  ),
                 ],
               ),
             ),

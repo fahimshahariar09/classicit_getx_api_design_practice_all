@@ -1,6 +1,8 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:getx_api_design_practice/controller/api_controller/authentication/sign_up.dart';
+import 'package:getx_api_design_practice/view/screen/auth/sign_in.dart';
 
 class SignUpController extends GetxController {
   final formKey = GlobalKey<FormState>();
@@ -26,6 +28,7 @@ class SignUpController extends GetxController {
     isLoading.value = false;
 
     if(status){
+      Get.to(()=>const SignIn());
       return;
     }
   }

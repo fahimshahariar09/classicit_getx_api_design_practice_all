@@ -15,7 +15,6 @@ class SignUpService {
       };
 
       var body= jsonEncode(data);
-      log(body);
 
       var response = await http.post(url,body: body,headers: headers);
 
@@ -23,9 +22,16 @@ class SignUpService {
         Get.snackbar("message", "Registration Success");
         return true;
       }else if(response.statusCode==422){
-        var responseData = jsonDecode(response.body)['errors'];
-        log("ass....:$responseData");
-        return false;
+        var responseData= jsonDecode(response.body)['errors'];
+        List a =responseData.keys.toList();
+
+        if(a.contains("email")){
+          Get.snackbar("message", "The email has already been used.");
+          return false;
+        }else if(a.contains("phone")){
+          Get.snackbar("message", "The phone has already been used.");
+          return false;
+        }
       }
 
     } catch (e) {
