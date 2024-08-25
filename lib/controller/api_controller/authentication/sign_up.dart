@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:get/get.dart';
-import 'package:getx_api_design_practice/controller/api_controller/authentication/apis.dart';
+import 'package:getx_api_design_practice/controller/api_controller/apis.dart';
 import 'package:http/http.dart' as http;
 
 class SignUpService {

@@ -1,5 +1,5 @@
 
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_api_design_practice/controller/api_controller/authentication/sign_up.dart';
 import 'package:getx_api_design_practice/view/screen/auth/sign_in.dart';
@@ -10,8 +10,7 @@ class SignUpController extends GetxController {
   TextEditingController emailController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  TextEditingController passwordconfirmationController =
-      TextEditingController();
+  TextEditingController passwordconfirmationController = TextEditingController();
 
   RxBool isLoading = false.obs;
 

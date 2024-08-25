@@ -17,9 +17,9 @@ class CommonText extends StatelessWidget {
     return Text(
       titel,
       style: TextStyle(
-        color: fColor ?? Colors.white,
+        color: fColor ?? Colors.cyanAccent,
         fontWeight: fWeight ?? FontWeight.normal,
-        fontSize: fSize ?? 12,
+        fontSize: fSize ?? 15,
         overflow: overflow ?? TextOverflow.ellipsis
       ),
       maxLines: maxLine ?? 1,
