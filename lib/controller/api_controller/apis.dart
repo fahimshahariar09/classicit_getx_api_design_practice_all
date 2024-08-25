@@ -7,6 +7,7 @@ class Apis{
   static String register ="$baseIp/api/registration";
   static String login ="$baseIp/api/login";
   static String productshow ="$baseIp/api/app/v1/products";
+  static String productdetalis ="$baseIp/api/app/v1/products/show/1";
 
 
 }

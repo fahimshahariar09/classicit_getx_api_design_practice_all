@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_api_design_practice/view/screen/product_screen/product_page.dart';
+import 'package:getx_api_design_practice/view/screen/auth/sign_in.dart';
 
 void main(){
   runApp(const MyApp());
@@ -11,9 +11,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  const GetMaterialApp (
+    return const GetMaterialApp (
       debugShowCheckedModeBanner: false,
-      home: ProductPage(),
+      home: SignIn(),
     );
   }
 }

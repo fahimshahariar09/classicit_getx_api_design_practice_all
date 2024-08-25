@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:getx_api_design_practice/controller/getx_controller/authentication/sign_up.dart';
 import 'package:getx_api_design_practice/view/common_widget/common_button.dart';
 import 'package:getx_api_design_practice/view/common_widget/common_loading_button.dart';
+import 'package:getx_api_design_practice/view/common_widget/common_text.dart';
+import 'package:getx_api_design_practice/view/screen/auth/sign_in.dart';
 import 'package:getx_api_design_practice/view/screen/auth/widget/confram_pass_text_field.dart';
 import 'package:getx_api_design_practice/view/screen/auth/widget/email_text_field.dart';
 import 'package:getx_api_design_practice/view/screen/auth/widget/pass_text_field.dart';
@@ -25,7 +27,11 @@ class SignUp extends StatelessWidget {
               key: signUpController.formKey,
               child: Column(
                 children: [
-                  buildSizedBox(height: 200),
+                  buildSizedBox(height: 20),
+                  const CommonText(titel: "Create Account",fSize: 18,fColor: Colors.black,fWeight: FontWeight.bold,),
+                  buildSizedBox(height: 10),
+                  const Text("Create an account so you can explore all the\nexisting jobs",style: TextStyle(fontWeight: FontWeight.w600,),textAlign: TextAlign.center,),
+                  buildSizedBox(height: 20),
                   EmailTextField(
                     emailController: signUpController.emailController,
                   ),
@@ -57,6 +63,12 @@ class SignUp extends StatelessWidget {
                             })
                         : const CommonLoadingButton(),
                   ),
+                  buildSizedBox(height: 20),
+                  GestureDetector(
+                      onTap: (){
+                        Get.to(()=>const SignIn());
+                      },
+                      child: const CommonText(titel: "Already have an account",fColor: Colors.black,)),
                 ],
               ),
             ),

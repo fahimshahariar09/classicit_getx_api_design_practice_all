@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:getx_api_design_practice/controller/getx_controller/authentication/sign_in.dart';
 import 'package:getx_api_design_practice/view/common_widget/common_button.dart';
 import 'package:getx_api_design_practice/view/common_widget/common_loading_button.dart';
+import 'package:getx_api_design_practice/view/common_widget/common_text.dart';
+import 'package:getx_api_design_practice/view/screen/auth/sign_up.dart';
 import 'package:getx_api_design_practice/view/screen/auth/widget/email_text_field.dart';
 import 'package:getx_api_design_practice/view/screen/auth/widget/pass_text_field.dart';
 
@@ -21,7 +23,11 @@ class SignIn extends StatelessWidget {
             key: signInController.formKey,
             child: Column(
               children: [
-                buildSizedBox(height: 200),
+                buildSizedBox(height: 10),
+                CommonText(titel: "Sign In here",fSize: 20,fColor: Colors.black,fWeight: FontWeight.bold,),
+                buildSizedBox(height: 20),
+                Text("Welcome back you've\nbeen missed!",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,),textAlign: TextAlign.center,),
+                buildSizedBox(height: 20),
                 EmailTextField(
                   emailController: signInController.emailController,
                 ),
@@ -42,6 +48,12 @@ class SignIn extends StatelessWidget {
                           })
                       : const CommonLoadingButton(),
                 ),
+                buildSizedBox(height: 20),
+                GestureDetector(
+                    onTap: (){
+                      Get.to(()=>SignUp());
+                    },
+                    child: CommonText(titel: "Create new Account",fColor: Colors.black,fSize: 18,)),
               ],
             ),
           ),
