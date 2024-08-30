@@ -19,8 +19,8 @@ class CommonButton extends StatelessWidget {
       child: Card(
         color: Colors.cyanAccent,
         child: SizedBox(
-          height: 45,
-          width: MediaQuery.sizeOf(context).width,
+          height: buttonHeight ?? 45,
+          width: buttonWidth ?? MediaQuery.sizeOf(context).width,
           child: Center(
             child: CommonText(titel: buttonName,
               fColor: textColor ?? Colors.white,

@@ -1,9 +1,9 @@
-class ProductShowModel {
+class ProductPageShowModel {
   List<Products>? products;
 
-  ProductShowModel({this.products});
+  ProductPageShowModel({this.products});
 
-  ProductShowModel.fromJson(Map<String, dynamic> json) {
+  ProductPageShowModel.fromJson(Map<String, dynamic> json) {
     if (json['products'] != null) {
       products = <Products>[];
       json['products'].forEach((v) {

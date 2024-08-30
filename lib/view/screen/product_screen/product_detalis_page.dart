@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_api_design_practice/controller/api_controller/apis.dart';
 import 'package:getx_api_design_practice/controller/getx_controller/product/product_detalis.dart';
+import 'package:getx_api_design_practice/view/common_widget/common_button.dart';
 import 'package:getx_api_design_practice/view/common_widget/common_text.dart';
 
 class ProductDetalisPage extends StatelessWidget {
@@ -15,10 +17,11 @@ class ProductDetalisPage extends StatelessWidget {
         title: const Text("Product Detalis"),
         centerTitle: true,
       ),
-      body: Obx(() => productDetalisController.isLoading.isFalse
-          ? Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5),
-            child: Column(
+      body: Obx(() => productDetalisController.isLoading.isTrue
+          ? const CircularProgressIndicator()
+          : Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 5),
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const CommonText(
@@ -26,26 +29,28 @@ class ProductDetalisPage extends StatelessWidget {
                     fColor: Colors.black,
                     fSize: 18,
                   ),
-                  const SizedBox(height: 20,),
+                  const SizedBox(
+                    height: 20,
+                  ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      const SizedBox(
+                        height: 20,
+                      ),
                       SizedBox(
-                        height: 150,
+                        height: 80,
                         child: ListView.builder(
                             shrinkWrap: true,
                             itemCount: productDetalisController.image.length,
                             scrollDirection: Axis.horizontal,
                             itemBuilder: (context, index) {
                               return Padding(
-                                padding:  const EdgeInsets.symmetric(horizontal: 5),
-                                child: SizedBox(
-                                  height: 120,
-                                  child: Image.network("https://media.istockphoto.com/id/1958337605/photo/portrait-of-a-woman-using-laptop-while-sitting-on-a-mint-couch-at-home.webp?b=1&s=612x612&w=0&k=20&c=01N6BcDlqkp_9VwTwvJQN2J7mZvb7Txorm1lgyooNPc=",width: 150,),
-                                  // child: Image.network(
-                                  //   "${Apis.baseIp}/${productDetalisController.image[index]}",
-                                  //   fit: BoxFit.fill,
-                                  // ),
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 5),
+                                child: Image.network(
+                                  "${Apis.baseIp}/${productDetalisController.image[index]}",
+                                  //fit: BoxFit.fill,
                                 ),
                               );
                             }),
@@ -58,30 +63,30 @@ class ProductDetalisPage extends StatelessWidget {
                         children: [
                           CommonText(
                             titel:
-                                "rating: ${productDetalisController.productDetails?.rating}",
+                                "Rating: ${productDetalisController.productDetails?.rating}",
                             fSize: 15,
                             fWeight: FontWeight.bold,
-                            fColor: Colors.cyanAccent,
+                            fColor: Colors.red,
                           ),
                           const SizedBox(
                             height: 2,
                           ),
                           CommonText(
                             titel:
-                                "productStock: ${productDetalisController.productDetails?.productStock}",
+                                "ProductStock: ${productDetalisController.productDetails?.productStock}",
                             fSize: 15,
                             fWeight: FontWeight.bold,
-                            fColor: Colors.cyanAccent,
+                            fColor: Colors.black,
                           ),
                           const SizedBox(
                             height: 2,
                           ),
                           CommonText(
                             titel:
-                                "review: ${productDetalisController.productDetails?.review}",
+                                "Review: ${productDetalisController.productDetails?.review}",
                             fSize: 15,
                             fWeight: FontWeight.bold,
-                            fColor: Colors.cyanAccent,
+                            fColor: Colors.blue,
                           ),
                           const SizedBox(
                             height: 25,
@@ -97,11 +102,20 @@ class ProductDetalisPage extends StatelessWidget {
                         ],
                       )
                     ],
-                  )
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Row(
+                    children: [
+                      CommonButton(buttonName: "Add To Cart",buttonWidth: MediaQuery.sizeOf(context).width/2.2,textColor: Colors.black, onTap: () {}),
+                      CommonButton(buttonName: "Buy Now",buttonWidth: MediaQuery.sizeOf(context).width/2.2,textColor: Colors.black, onTap: () {}),
+
+                    ],
+                  ),
                 ],
               ),
-          )
-          : const CircularProgressIndicator()),
+            )),
     );
   }
 }

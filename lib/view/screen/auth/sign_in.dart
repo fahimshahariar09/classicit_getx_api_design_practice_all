@@ -21,40 +21,45 @@ class SignIn extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Form(
             key: signInController.formKey,
-            child: Column(
-              children: [
-                buildSizedBox(height: 10),
-                CommonText(titel: "Sign In here",fSize: 20,fColor: Colors.black,fWeight: FontWeight.bold,),
-                buildSizedBox(height: 20),
-                Text("Welcome back you've\nbeen missed!",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,),textAlign: TextAlign.center,),
-                buildSizedBox(height: 20),
-                EmailTextField(
-                  emailController: signInController.emailController,
-                ),
-                buildSizedBox(height: 10),
-                PassTextField(
-                    passwordController: signInController.passwordController),
-                buildSizedBox(height: 20),
-                Obx(
-                  () => signInController.isLoading.isFalse
-                      ? CommonButton(
-                          buttonName: "Sign In",
-                          onTap: () {
-                            if (!signInController.formKey.currentState!
-                                .validate()) {
-                              return;
-                            }
-                            signInController.signInFun();
-                          })
-                      : const CommonLoadingButton(),
-                ),
-                buildSizedBox(height: 20),
-                GestureDetector(
-                    onTap: (){
-                      Get.to(()=>SignUp());
-                    },
-                    child: CommonText(titel: "Create new Account",fColor: Colors.black,fSize: 18,)),
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  buildSizedBox(height: 10),
+                  CommonText(titel: "Sign In here",fSize: 20,fColor: Colors.black,fWeight: FontWeight.bold,),
+                  buildSizedBox(height: 20),
+                  Image.asset("assets/images/splash.png"),
+                  buildSizedBox(height: 20),
+                  Text("Welcome back you've\nbeen missed!",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,),textAlign: TextAlign.center,),
+                  buildSizedBox(height: 20),
+                  EmailTextField(
+                    emailController: signInController.emailController,
+                  ),
+                  buildSizedBox(height: 10),
+                  PassTextField(
+                      passwordController: signInController.passwordController),
+                  buildSizedBox(height: 20),
+                  Obx(
+                    () => signInController.isLoading.isFalse
+                        ? CommonButton(
+                            buttonName: "Sign In",
+                            onTap: () {
+                              if (!signInController.formKey.currentState!
+                                  .validate()) {
+                                return;
+                              }
+                              signInController.signInFun();
+                            })
+                        : const CommonLoadingButton(),
+                  ),
+                  buildSizedBox(height: 20),
+                  GestureDetector(
+                      onTap: (){
+                        Get.to(()=>SignUp());
+                      },
+                      child: CommonText(titel: "Create new Account",fColor: Colors.black,fSize: 18,)),
+                ],
+              ),
             ),
           ),
         ),
