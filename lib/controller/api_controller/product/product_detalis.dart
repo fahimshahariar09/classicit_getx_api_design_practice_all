@@ -6,7 +6,7 @@ import 'package:getx_api_design_practice/model/product_detalis_model.dart';
 import 'package:http/http.dart' as http;
 
 class ProductDetalisService{
-  static Future<ProductDetails?> productDetalisService({required String id})async{
+  static Future<ProductDetails?> productDetalisService()async{
 
     try{
 

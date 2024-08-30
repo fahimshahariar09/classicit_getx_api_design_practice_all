@@ -25,51 +25,53 @@ class SignUp extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Form(
               key: signUpController.formKey,
-              child: Column(
-                children: [
-                  buildSizedBox(height: 20),
-                  const CommonText(titel: "Create Account",fSize: 18,fColor: Colors.black,fWeight: FontWeight.bold,),
-                  buildSizedBox(height: 10),
-                  const Text("Create an account so you can explore all the\nexisting jobs",style: TextStyle(fontWeight: FontWeight.w600,),textAlign: TextAlign.center,),
-                  buildSizedBox(height: 20),
-                  EmailTextField(
-                    emailController: signUpController.emailController,
-                  ),
-                  buildSizedBox(height: 10),
-                  PhoneTextField(
-                    phoneController: signUpController.phoneController,
-                  ),
-                  buildSizedBox(height: 10),
-                  PassTextField(
-                    passwordController: signUpController.passwordController,
-                  ),
-                  buildSizedBox(height: 10),
-                  ConframPassTextField(
-                    confarmpasswordController:
-                        signUpController.passwordconfirmationController,
-                  ),
-                  buildSizedBox(height: 20),
-                  Obx(
-                    () => signUpController.isLoading.isFalse
-                        ? CommonButton(
-                            buttonName: "Sign Up",
-                            onTap: () {
-                              log("message");
-                              if (!signUpController.formKey.currentState!
-                                  .validate()) {
-                                return;
-                              }
-                              signUpController.signUpFun();
-                            })
-                        : const CommonLoadingButton(),
-                  ),
-                  buildSizedBox(height: 20),
-                  GestureDetector(
-                      onTap: (){
-                        Get.to(()=>const SignIn());
-                      },
-                      child: const CommonText(titel: "Already have an account",fColor: Colors.black,)),
-                ],
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    buildSizedBox(height: 20),
+                    const CommonText(titel: "Create Account",fSize: 18,fColor: Colors.black,fWeight: FontWeight.bold,),
+                    buildSizedBox(height: 10),
+                    const Text("Create an account so you can explore all the\nexisting jobs",style: TextStyle(fontWeight: FontWeight.w600,),textAlign: TextAlign.center,),
+                    buildSizedBox(height: 20),
+                    EmailTextField(
+                      emailController: signUpController.emailController,
+                    ),
+                    buildSizedBox(height: 10),
+                    PhoneTextField(
+                      phoneController: signUpController.phoneController,
+                    ),
+                    buildSizedBox(height: 10),
+                    PassTextField(
+                      passwordController: signUpController.passwordController,
+                    ),
+                    buildSizedBox(height: 10),
+                    ConframPassTextField(
+                      confarmpasswordController:
+                          signUpController.passwordconfirmationController,
+                    ),
+                    buildSizedBox(height: 20),
+                    Obx(
+                      () => signUpController.isLoading.isFalse
+                          ? CommonButton(
+                              buttonName: "Sign Up",
+                              onTap: () {
+                                log("message");
+                                if (!signUpController.formKey.currentState!
+                                    .validate()) {
+                                  return;
+                                }
+                                signUpController.signUpFun();
+                              })
+                          : const CommonLoadingButton(),
+                    ),
+                    buildSizedBox(height: 20),
+                    GestureDetector(
+                        onTap: (){
+                          Get.to(()=>const SignIn());
+                        },
+                        child: const CommonText(titel: "Already have an account",fColor: Colors.black,)),
+                  ],
+                ),
               ),
             ),
           ),

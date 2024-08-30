@@ -4,7 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_api_design_practice/controller/api_controller/authentication/sign_in.dart';
-import 'package:getx_api_design_practice/view/screen/product_screen/product_page.dart';
+import 'package:getx_api_design_practice/view/screen/product_screen/product_page_show.dart';
 
 class SignInController extends GetxController{
 
@@ -21,7 +21,7 @@ class SignInController extends GetxController{
     isLoading.value = false;
 
     if(status){
-      Get.to(()=>const ProductPage());
+      Get.to(()=>const ProductPageShow());
       return;
     }
   }

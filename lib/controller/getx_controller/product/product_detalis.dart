@@ -11,7 +11,7 @@ class ProductDetalisController extends GetxController{
 
   productDetalisFun()async{
     isLoading.value =true;
-    productDetails = await ProductDetalisService.productDetalisService(id:'');
+    productDetails = await ProductDetalisService.productDetalisService();
     image(productDetails?.images);
     isLoading.value =false;
   }
