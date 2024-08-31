@@ -1,8 +1,10 @@
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_api_design_practice/controller/getx_controller/product/product_page_show.dart';
 import 'package:getx_api_design_practice/view/common_widget/common_text.dart';
 import 'package:getx_api_design_practice/view/screen/product_screen/product_detalis_page.dart';
+import 'package:getx_api_design_practice/view/screen/product_screen/product_show_cart.dart';
 
 class ProductPageShow extends StatelessWidget {
   const ProductPageShow({super.key});
@@ -15,6 +17,14 @@ class ProductPageShow extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Product Show"),
         centerTitle: true,
+        actions: [
+          InkWell(
+            onTap: (){
+              Get.to(const ProductShowCart());
+            },
+              child: const Icon(Icons.add_shopping_cart)),
+          const SizedBox(width: 20,)
+        ],
       ),
       body: Obx(() => productpageShowController.isLoading.isFalse
           ? Padding(
@@ -30,7 +40,8 @@ class ProductPageShow extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: () {
-                        Get.to(() => const ProductDetalisPage());
+                        int id =productpageShowController.products?[index].productId ?? 0;
+                        Get.to(() => ProductDetalisPage(id: id,),arguments: id);
                       },
                       child: Card(
                         child: Column(

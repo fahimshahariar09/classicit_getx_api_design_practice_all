@@ -26,11 +26,11 @@ class SignIn extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   buildSizedBox(height: 10),
-                  CommonText(titel: "Sign In here",fSize: 20,fColor: Colors.black,fWeight: FontWeight.bold,),
+                  const CommonText(titel: "Sign In here",fSize: 20,fColor: Colors.black,fWeight: FontWeight.bold,),
                   buildSizedBox(height: 20),
                   Image.asset("assets/images/splash.png"),
                   buildSizedBox(height: 20),
-                  Text("Welcome back you've\nbeen missed!",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,),textAlign: TextAlign.center,),
+                  const Text("Welcome back you've\nbeen missed!",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,),textAlign: TextAlign.center,),
                   buildSizedBox(height: 20),
                   EmailTextField(
                     emailController: signInController.emailController,
@@ -55,9 +55,9 @@ class SignIn extends StatelessWidget {
                   buildSizedBox(height: 20),
                   GestureDetector(
                       onTap: (){
-                        Get.to(()=>SignUp());
+                        Get.to(()=>const SignUp());
                       },
-                      child: CommonText(titel: "Create new Account",fColor: Colors.black,fSize: 18,)),
+                      child: const CommonText(titel: "Create new Account",fColor: Colors.black,fSize: 18,)),
                 ],
               ),
             ),

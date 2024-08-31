@@ -6,11 +6,11 @@ import 'package:getx_api_design_practice/model/product_detalis_model.dart';
 import 'package:http/http.dart' as http;
 
 class ProductDetalisService{
-  static Future<ProductDetails?> productDetalisService()async{
+  static Future<ProductDetails?> productDetalisService({required int id})async{
 
     try{
 
-      Uri url = Uri.parse(Apis.productdetalis);
+      Uri url = Uri.parse("${Apis.productdetalis}/$id");
 
       var response = await http.get(url);
       if(response.statusCode==200){
