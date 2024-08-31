@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_api_design_practice/controller/api_controller/apis.dart';
@@ -6,7 +7,9 @@ import 'package:getx_api_design_practice/view/common_widget/common_button.dart';
 import 'package:getx_api_design_practice/view/common_widget/common_text.dart';
 
 class ProductDetalisPage extends StatelessWidget {
-  const ProductDetalisPage({super.key});
+  const ProductDetalisPage({super.key, required this.id});
+
+  final int id;
 
   @override
   Widget build(BuildContext context) {
@@ -108,9 +111,20 @@ class ProductDetalisPage extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      CommonButton(buttonName: "Add To Cart",buttonWidth: MediaQuery.sizeOf(context).width/2.2,textColor: Colors.black, onTap: () {}),
-                      CommonButton(buttonName: "Buy Now",buttonWidth: MediaQuery.sizeOf(context).width/2.2,textColor: Colors.black, onTap: () {}),
-
+                      CommonButton(
+                          buttonName: "Add To Cart",
+                          buttonWidth: MediaQuery.sizeOf(context).width / 2.2,
+                          textColor: Colors.black,
+                          onTap: () async {
+                            productDetalisController.addtocartFun(id: id);
+                            // var t= await LocalStorage().readData(key: "token");
+                            // log("token $t");
+                          }),
+                      CommonButton(
+                          buttonName: "Buy Now",
+                          buttonWidth: MediaQuery.sizeOf(context).width / 2.2,
+                          textColor: Colors.black,
+                          onTap: () {}),
                     ],
                   ),
                 ],
