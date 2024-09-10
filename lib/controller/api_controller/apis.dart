@@ -3,8 +3,8 @@
 class Apis{
 
 
-  static String baseIp ="https://cit-ecommerce-codecanyon.bandhantrade.com";
-  static String register ="$baseIp/api/registration";
+  static String baseIp ="";
+  static String register ="";
   static String login ="$baseIp/api/login";
   static String productshow ="$baseIp/api/app/v1/products";
   static String productdetalis ="$baseIp/api/app/v1/products/show";
